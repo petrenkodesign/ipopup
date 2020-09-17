@@ -19,7 +19,7 @@ var popBody = document.createElement("div");
     popBody.setAttribute("id", "popup1");
     popBody.innerHTML = '<div class="popup"><h2>Popup heder</h2><a class="close" href="#">&times;</a><div class="content">Popup body here.</div></div>';
 
-document.getElementsByTagName("body")[0].appendChild(popBody);
+document.getElementsByTagName("head")[0].appendChild(popBody);
 
 
 // <div id="popup1" class="overlay">
