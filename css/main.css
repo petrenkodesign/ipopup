@@ -46,6 +46,6 @@ h1 {
   color: #06D85F;
 }
 .popup .content {
-  max-height: 30%;
+  max-height: 80%;
   overflow: auto;
 }
