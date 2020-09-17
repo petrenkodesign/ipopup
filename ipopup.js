@@ -23,7 +23,7 @@ window.onload = function() {
         popContent +='<a class="close" href="#">&times;</a>';
         popContent +='<div class="content">Popup body here.</div>';
         popContent +='</div>';
-        popContent = popContent;
+        popBody.innerHTML = popContent;
     document.getElementsByTagName("body")[0].appendChild(popBody);
 }
 // end of document load
