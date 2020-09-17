@@ -1,6 +1,6 @@
 var debug = true;
 
-document.onload = function() {
+window.onload = function() {
     // add link to style script on the site
     if(document.createStyleSheet) {
       document.createStyleSheet('https://petrenkodesign.github.io/ipopup/css/main.css');
