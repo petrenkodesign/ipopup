@@ -6,7 +6,7 @@
   left: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.7);
-  transition: opacity 300ms;
+  transition: opacity 1s;
   opacity: 0;
 }
 .overlay:target {
@@ -17,13 +17,13 @@
 .popup {
   top: 50%;
   transform: translateY(-50%);
-  margin: auto; 
+  margin: auto;
   padding: 20px;
   background: #fff;
   border-radius: 5px;
   width: 30%;
   position: relative;
-  transition: all 3s ease-in-out;
+  transition: all 1s ease-in-out;
   font-family: 'Open Sans', sans-serif;
   color: #878787;
 }
