@@ -67,7 +67,12 @@ function addButton() {
 // function for cheking popup show status
 function statusPop() {
   var statusipop = getCookie('statusipop');
-  if (statusipop=='off') popConfig.show = false;
+  console.log(statusipop);
+  if (statusipop=='off') {
+    popConfig.show = false;
+    console.log("---->yes");
+  }
+  console.log(popConfig.show);
 }
 // function count of how many time close ipopup
 function closePop() {
