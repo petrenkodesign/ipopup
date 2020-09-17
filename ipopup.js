@@ -1,5 +1,9 @@
 var debug = true;
-var popConfig = {heder:"This is popup", content:"Hello there! I am yor pop, bro!)", bgColor:"#fff"};
+var popConfig = {
+  heder:"This is popup",
+  content:"Hello there! I am yor pop, bro!)",
+  bgColor:"#fff"
+};
 
 window.onload = function() {
     // add link to style script on the site
@@ -19,7 +23,7 @@ window.onload = function() {
     var popBody = document.createElement("div");
         popBody.setAttribute("class", "overlay");
         popBody.setAttribute("id", "ipopup");
-    var popContent = '<div class="popup">';
+    var popContent = '<div class="popup" style="background:'+popConfig.bgColor+'">';
         popContent +='<h2>'+popConfig.heder+'</h2>';
         popContent +='<a class="close" href="#">&times;</a>';
         popContent +='<div class="content">'+popConfig.content+'</div>';
