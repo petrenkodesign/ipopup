@@ -53,8 +53,7 @@
   }
 }
 
-/* <button><img></button> */
-.popButton {
+#iPopButton {
   z-index: 100000002;
   left: 20px;
   bottom: 60px;
@@ -76,7 +75,7 @@
   align-items: center;
 }
 
-.popButton img {
+#iPopButton img {
   width: 33px;
   height: 33px;
   vertical-align: middle;

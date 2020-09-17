@@ -56,7 +56,7 @@ window.onload = function() {
 // function add on site start button for popup
 function addButton() {
   var popButton = document.createElement("a");
-      popButton.setAttribute("class", "popButton");
+      popButton.setAttribute("id", "iPopButton");
       popButton.setAttribute("href", "#ipopup");
       popButton.innerHTML = '<img src="https://petrenkodesign.github.io/ipopup/img/icon.png">';
   document.getElementsByTagName("body")[0].appendChild(popButton);
@@ -69,6 +69,10 @@ function statusPop() {
   var statusipop = getCookie('statusipop');
   if (statusipop=='off') {
     popConfig.show = false;
+    var ipopup = document.getElementById("ipopup");
+    console.log(ipopup);
+    ipopup.remove();
+    document.getElementById("iPopButton").remove();
   }
 }
 // function count of how many time close ipopup
@@ -79,7 +83,7 @@ function closePop() {
     statusPop();
   }
   else {
-    if(numofclose==false) numofclose = 0;
+    if(numofclose==false) numofclose = 1;
     numofclose++;
     setCookie('ncipop', numofclose);
   }
