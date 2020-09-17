@@ -3,7 +3,8 @@ var popConfig = {
   heder:"This is popup",
   content:"Hello there! I am yor pop, bro!)",
   bgColor:"#fff",
-  bgUrl:"https://petrenkodesign.github.io/ipopup/img/bg.jpg"
+  bgUrl:"https://petrenkodesign.github.io/ipopup/img/bg.jpg",
+  button: true
 };
 
 window.onload = function() {
@@ -32,7 +33,20 @@ window.onload = function() {
         popBody.innerHTML = popContent;
     document.getElementsByTagName("body")[0].appendChild(popBody);
 
+    // chek configuration and customize ipopup
+
     // add custom styles to popup
     if (popConfig.bgUrl!='none') document.getElementById("ipopContent").style.cssText += '; background-image: url('+popConfig.bgUrl+'); background-position: 50% 50%; background-repeat: no-repeat; background-size: cover';
+
+    // add start button
+    if (popConfig.button==true) addButton();
 }
 // end of document load
+
+function addButton() {
+  var popButton = document.createElement("a");
+      popButton.setAttribute("class", "popButton");
+      popButton.setAttribute("href", "#ipopup");
+      popButton.innerHTML = '<img src="https://petrenkodesign.github.io/ipopup/img/icon.png">';
+  document.getElementsByTagName("body")[0].appendChild(popButton);
+}
