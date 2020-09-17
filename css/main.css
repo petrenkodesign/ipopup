@@ -24,13 +24,24 @@
   width: 30%;
   position: relative;
   transition: all 3s ease-in-out;
+  font-family: 'Open Sans', sans-serif;
+  color: #878787;
 }
 
 .popup h2 {
   margin-top: 0;
-  color: #333;
-  font-family: sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  text-transform: uppercase;
 }
+
+.popup .content {
+  max-height: 70%;
+  overflow: auto;
+  font-size: 14px;
+  font-weight: 400;
+}
+
 #closepop {
   position: absolute;
   top: 20px;
@@ -41,12 +52,9 @@
   text-decoration: none;
   color: #333;
 }
+
 #closepop:hover {
   color: #06D85F;
-}
-.popup .content {
-  max-height: 70%;
-  overflow: auto;
 }
 
 @media screen and (max-width: 700px){
