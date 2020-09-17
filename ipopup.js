@@ -78,7 +78,9 @@ function closePop() {
   }
   else {
     if(numofclose==false) numofclose = 0;
+    console.log(numofclose);
     numofclose++;
+    console.log(numofclose);
     setCookie('ncipop', numofclose);
   }
 }
