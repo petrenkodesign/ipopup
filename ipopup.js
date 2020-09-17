@@ -29,6 +29,7 @@ window.onload = function() {
 }
 // end of document load
 
+
 // start configuration function, use after main script loaded
 function IpopConfig(popHeder, popContent, bgColor) {
   popConfig.heder = popHeder;
