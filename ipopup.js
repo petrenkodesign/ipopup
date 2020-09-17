@@ -1,4 +1,4 @@
-var debug = true;
+var debug = false;
 var popConfig = {
   heder:"This is popup",
   content:"Hello there! I am yor pop, bro!)",
@@ -15,6 +15,7 @@ window.onload = function() {
     // cheking if popup status off
     statusPop();
     timerUp();
+    chrpage(); // iframe load chekout
 
     if (popConfig.show) {
 
@@ -52,29 +53,16 @@ window.onload = function() {
         // add start button
         if (popConfig.button==true) addButton();
 
-        //
+        // iframe submit listen for esputnik
         document.getElementById("frame_form").onload = function () {
           this.addEventListener("mouseleave", function(e) {
-            if(debug) console.log("Out from the frame");
+            if(debug) console.log("Iam leave frame");
           });
 
-          // this.onclick = function() {
-          //   alert();
-          // };
-
-          // const childWindow = this.contentWindow;
-          // this.addEventListener('message', function(e) {
-          //   alert();
-          // });
-          //
-          // this.addEventListener('submit', function(e){
-          //   console.log("--------->"); console.log(e);
-          //   if(!isValid){
-          //        e.preventDefault();    //stop form from submitting
-          //    }
-          // });
-
-
+          var ipop_frame_num = getCookie('ipop_frame_num');
+          if (ipop_frame_num == false) ipop_frame_num = 1;
+          else ipop_frame_num++;
+          setCookie('ipop_frame_num', ipop_frame_num, 1);
         }
 
     } // end of cheking popup showin status
@@ -84,8 +72,10 @@ window.onload = function() {
 // listen when site leave and show popup
 if (popConfig.siteleave) {
   document.addEventListener("mouseleave", function(e) {
+    if (popConfig.show) {
       window.location.hash="ipopup";
       if(debug) console.log("Site leave!");
+    }
   });
 }
 
@@ -115,6 +105,18 @@ function firstStartLoad() {
   }
 }
 
+// chek reload page
+function chrpage() {
+  if (getCookie('chrpage') == false) {
+    setCookie('chrpage', 1);
+    setCookie('ipop_frame_num', false, -1);
+  }
+  else {
+    setCookie('chrpage', false, -1);
+    setCookie('ipop_frame_num', false, -1);
+  }
+}
+
 // function start popup time from first start
 function timerUp() {
   if (popConfig.show) {
@@ -139,7 +141,8 @@ function statusPop() {
 // function count of how many time close ipopup
 function closePop() {
   var numofclose = getCookie('ncipop');
-  if (numofclose >=  popConfig.showtimes) {
+  var ipop_frame_num = getCookie('ipop_frame_num'); // iframe reload count
+  if (numofclose >=  popConfig.showtimes || ipop_frame_num >= 2) {
     setCookie('statusipop', 'off');
     statusPop();
   }
@@ -163,10 +166,22 @@ function getCookie(name) {
     return false;
 }
 // set cookie, simply function
-function setCookie(name, value, exdays) {
-    exdays = exdays || 3650;
+function setCookie(name, value, exdays=3650) {
+    exdays = exdays || 1;
     d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     var expires = "expires="+d.toUTCString();
     document.cookie = name + "=" + value + "; " + expires;
+}
+
+// delete all cookies
+function deleteAllCookies() {
+    var cookies = document.cookie.split('; ');
+    for (let cookie of cookies) {
+      var index = cookie.indexOf('=');
+        var name = ~index
+          ? cookie.substr(0, index)
+          : cookie;
+          document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/';
+    }
 }
