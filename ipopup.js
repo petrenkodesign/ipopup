@@ -67,12 +67,9 @@ function addButton() {
 // function for cheking popup show status
 function statusPop() {
   var statusipop = getCookie('statusipop');
-  console.log(statusipop);
   if (statusipop=='off') {
     popConfig.show = false;
-    console.log("---->yes");
   }
-  console.log(popConfig.show);
 }
 // function count of how many time close ipopup
 function closePop() {
@@ -82,11 +79,8 @@ function closePop() {
     statusPop();
   }
   else {
-    console.log(numofclose);
     if(numofclose==false) numofclose = 0;
-    console.log(numofclose);
     numofclose++;
-    console.log(numofclose);
     setCookie('ncipop', numofclose);
   }
 }
@@ -96,13 +90,8 @@ function getCookie(name) {
     var cookies, one_cookie;
     cookies = document.cookie.split(';');
     for (var i=0; i < cookies.length; i++) {
-        one_cookie = cookies[i].split('=');
-        console.log(i);
-        console.log(cookies[i]);
-        console.log(one_cookie[0]);
-        console.log(name);
+        one_cookie = cookies[i].trim().split('=');
         if (one_cookie[0] == name) {
-          console.log("--->done");
           return one_cookie[1];
         }
     }
