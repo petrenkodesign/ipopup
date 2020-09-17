@@ -36,6 +36,7 @@ window.onload = function() {
         var popBody = document.createElement("div");
             popBody.setAttribute("class", "overlay");
             popBody.setAttribute("id", "ipopup");
+            popBody.hidden = true; //crank
         var popContent = '<div class="popup" id="ipopContent" style="background-color:'+popConfig.bgColor+'">';
             popContent +='<h2>'+popConfig.heder+'</h2>';
             popContent +='<a id="closepop" href="#">&times;</a>';
@@ -63,6 +64,8 @@ window.onload = function() {
           if (ipop_frame_num == false) ipop_frame_num = 1;
           else ipop_frame_num++;
           setCookie('ipop_frame_num', ipop_frame_num, 1);
+
+          document.getElementById("ipopup").hidden = false; //crank
         }
 
     } // end of cheking popup showin status
