@@ -62,12 +62,14 @@ function addButton() {
   document.getElementsByTagName("body")[0].appendChild(popButton);
 }
 
-// function count of how many time close ipopup
+// user rections algorithms
+
+// function for cheking popup show status
 function statusPop() {
   var statusipop = getCookie('statusipop');
   if (statusipop=='off') popConfig.show = false;
 }
-
+// function count of how many time close ipopup
 function closePop() {
   var numofclose = getCookie('ncipop');
   if (numofclose >  popConfig.showtimes) {
@@ -93,10 +95,9 @@ function getCookie(name) {
 }
 // set cookie, simply function
 function setCookie(name, value, exdays) {
-    var d, expires;
     exdays = exdays || 3650;
     d = new Date();
-    d.setTime(d.getTime() + (exdays2460601000));
-    expires = "expires=" + d.toUTCString();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires="+d.toUTCString();
     document.cookie = name + "=" + value + "; " + expires;
 }
