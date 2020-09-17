@@ -88,10 +88,12 @@ function closePop() {
 
 // get cookie by name
 function getCookie(name) {
-    var cookies, _one_cookie;
+    var cookies, one_cookie;
     cookies = document.cookie.split(';');
     for (var i=0; i < cookies.length; i++) {
         one_cookie = cookies[i].split('=');
+        console.log(one_cookie[0]);
+        console.log(name);
         if (one_cookie[0] == name) return one_cookie[1];
     }
     return false;
