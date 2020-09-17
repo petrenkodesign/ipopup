@@ -17,7 +17,7 @@
 .popup {
   top: 50%;
   transform: translateY(-50%);
-  /* margin: 70px auto; */
+  margin: auto; /* 70px */
   padding: 20px;
   background: #fff;
   border-radius: 5px;
