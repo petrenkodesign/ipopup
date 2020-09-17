@@ -70,9 +70,9 @@ function statusPop() {
   if (statusipop=='off') {
     popConfig.show = false;
     var ipopup = document.getElementById("ipopup");
-    console.log(ipopup);
-    ipopup.remove();
-    document.getElementById("iPopButton").remove();
+    if(ipopup) ipopup.remove();
+    var ipopup_button = document.getElementById("iPopButton");
+    if(ipopup_button) ipopup_button.remove();
   }
 }
 // function count of how many time close ipopup
