@@ -5,7 +5,7 @@
   left: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.7);
-  transition: opacity 200ms;
+  transition: opacity 300ms;
   visibility: hidden;
   opacity: 0;
 }
@@ -21,7 +21,7 @@
   border-radius: 5px;
   width: 30%;
   position: relative;
-  transition: all 5s ease-in-out;
+  transition: all 3s ease-in-out;
 }
 
 .popup h2 {
@@ -51,4 +51,33 @@
   .popup{
     width: 70%;
   }
+}
+
+/* <button><img></button> */
+.popButton {
+  z-index: 100000002;
+  left: 20px;
+  bottom: 60px;
+  position: fixed;
+  /* display: block; */
+
+  width: 53px;
+  height: 53px;
+  background-color: #93c73e;
+  cursor: pointer;
+  border-radius: 11px;
+  border: none;
+  outline: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: stretch;
+  align-items: center;
+}
+
+.popButton img {
+  width: 33px;
+  height: 33px;
+  vertical-align: middle;
 }
