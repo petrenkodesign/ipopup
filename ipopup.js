@@ -101,7 +101,10 @@ function getCookie(name) {
         console.log(cookies[i]);
         console.log(one_cookie[0]);
         console.log(name);
-        if (one_cookie[0] == name) return one_cookie[1];
+        if (one_cookie[0] == name) {
+          console.log("--->done");
+          return one_cookie[1];
+        }
     }
     return false;
 }
