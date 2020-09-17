@@ -1,3 +1,6 @@
+h1 {
+  color: red;
+}
 .overlay {
   position: fixed;
   top: 0;
