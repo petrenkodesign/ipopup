@@ -78,7 +78,7 @@ function statusPop() {
 // function count of how many time close ipopup
 function closePop() {
   var numofclose = getCookie('ncipop');
-  if (numofclose >  popConfig.showtimes) {
+  if (numofclose >=  popConfig.showtimes) {
     setCookie('statusipop', 'off');
     statusPop();
   }
