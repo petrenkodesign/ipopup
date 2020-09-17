@@ -92,6 +92,8 @@ function getCookie(name) {
     cookies = document.cookie.split(';');
     for (var i=0; i < cookies.length; i++) {
         one_cookie = cookies[i].split('=');
+        console.log(i);
+        console.log(cookies[i]);
         console.log(one_cookie[0]);
         console.log(name);
         if (one_cookie[0] == name) return one_cookie[1];
