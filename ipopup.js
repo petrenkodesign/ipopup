@@ -77,6 +77,7 @@ function closePop() {
     statusPop();
   }
   else {
+    console.log(numofclose);
     if(numofclose==false) numofclose = 0;
     console.log(numofclose);
     numofclose++;
