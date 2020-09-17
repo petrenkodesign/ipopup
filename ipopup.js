@@ -6,12 +6,15 @@ var popConfig = {
   bgUrl:"https://petrenkodesign.github.io/ipopup/img/bg.jpg",
   button: true,
   show: true,
-  showtimes: 3
+  showtimes: 3,
+  poptimer: 20,
+  siteleave: true
 };
 
 window.onload = function() {
     // cheking if popup status off
     statusPop();
+    timerUp();
 
     if (popConfig.show) {
 
@@ -49,9 +52,42 @@ window.onload = function() {
         // add start button
         if (popConfig.button==true) addButton();
 
+        //
+        document.getElementById("frame_form").onload = function () {
+          this.addEventListener("mouseleave", function(e) {
+            console.log(this);
+          });
+
+          // this.onclick = function() {
+          //   alert();
+          // };
+
+          // const childWindow = this.contentWindow;
+          // this.addEventListener('message', function(e) {
+          //   alert();
+          // });
+          //
+          // this.addEventListener('submit', function(e){
+          //   console.log("--------->"); console.log(e);
+          //   if(!isValid){
+          //        e.preventDefault();    //stop form from submitting
+          //    }
+          // });
+
+
+        }
+
     } // end of cheking popup showin status
 
 } // end of document load
+
+// listen when site leave and show popup
+if (popConfig.siteleave) {
+  document.addEventListener("mouseleave", function(e) {
+      window.location.hash="ipopup";
+      if(debug) console.log("Site leave!");
+  });
+}
 
 // function add on site start button for popup
 function addButton() {
@@ -63,6 +99,31 @@ function addButton() {
 }
 
 // user rections algorithms
+
+// function for ceking when 20 min left from first site load
+function firstStartLoad() {
+  var popStart = getCookie('ipop_start');
+  if (popStart==false) {
+    setCookie('ipop_start', Date()); //set first start date
+  }
+  else {
+    var alarmtime = new Date(popStart);
+    alarmtime.setMinutes(alarmtime.getMinutes() + popConfig.poptimer);
+    if (Date.parse(Date()) > Date.parse(alarmtime)) {
+      console.log("20 min left after first load of the site!");
+    }
+  }
+}
+
+// function start popup time from first start
+function timerUp() {
+  if (popConfig.show) {
+    setTimeout(function() {
+      window.location.hash="ipopup";
+      if(debug) console.log("20 min left after first load of the site!");
+    }, popConfig.poptimer*60000);
+  }
+}
 
 // function for cheking popup show status
 function statusPop() {
