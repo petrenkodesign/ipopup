@@ -55,7 +55,7 @@ window.onload = function() {
         //
         document.getElementById("frame_form").onload = function () {
           this.addEventListener("mouseleave", function(e) {
-            console.log(this);
+            if(debug) console.log("Out from the frame");
           });
 
           // this.onclick = function() {
