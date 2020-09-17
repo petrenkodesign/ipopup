@@ -33,6 +33,6 @@ window.onload = function() {
     document.getElementsByTagName("body")[0].appendChild(popBody);
 
     // add custom styles to popup
-    if (popConfig.bgUrl!='none') document.getElementsById("ipopContent").style.cssText += '; background-image: url('+popConfig.bgUrl+'); background-position: 50% 50%; background-repeat: no-repeat;';
+    if (popConfig.bgUrl!='none') document.getElementById("ipopContent").style.cssText += '; background-image: url('+popConfig.bgUrl+'); background-position: 50% 50%; background-repeat: no-repeat;';
 }
 // end of document load
