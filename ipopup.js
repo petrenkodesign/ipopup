@@ -3,7 +3,7 @@ var popConfig = {
   heder:"This is popup",
   content:"Hello there! I am yor pop, bro!)",
   bgColor:"#fff",
-  bgUrl:"https://petrenkodesign.github.io/ipopup/img/bg.png"
+  bgUrl:"https://petrenkodesign.github.io/ipopup/img/bg.jpg"
 };
 
 window.onload = function() {
@@ -33,6 +33,6 @@ window.onload = function() {
     document.getElementsByTagName("body")[0].appendChild(popBody);
 
     // add custom styles to popup
-    if (popConfig.bgUrl!='none') document.getElementById("ipopContent").style.cssText += '; background-image: url('+popConfig.bgUrl+'); background-position: 50% 50%; background-repeat: no-repeat;';
+    if (popConfig.bgUrl!='none') document.getElementById("ipopContent").style.cssText += '; background-image: url('+popConfig.bgUrl+'); background-position: 50% 50%; background-repeat: no-repeat; background-size: cover';
 }
 // end of document load
