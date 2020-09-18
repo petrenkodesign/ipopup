@@ -1,0 +1,92 @@
+.overlay {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.2);
+  transition: opacity 800ms;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  top: 50%;
+  transform: translateY(-50%);
+  margin: auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 1s ease-in-out;
+  font-family: 'Open Sans', sans-serif;
+  color: #878787;
+}
+
+.popup h2 {
+  margin-top: 0;
+  font-size: 24px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.popup .content {
+  max-height: 70%;
+  overflow: auto;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.closepop {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.closepop:hover {
+  color: #06D85F;
+}
+
+@media screen and (max-width: 700px){
+  .popup{
+    width: 70%;
+  }
+}
+
+.iPopButton {
+  z-index: 100000002;
+  left: 20px;
+  bottom: 60px;
+  position: fixed;
+  /* display: block; */
+
+  width: 53px;
+  height: 53px;
+  background-color: #93c73e;
+  cursor: pointer;
+  border-radius: 11px;
+  border: none;
+  outline: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: stretch;
+  align-items: center;
+}
+
+.iPopButton img {
+  width: 33px;
+  height: 33px;
+  vertical-align: middle;
+}

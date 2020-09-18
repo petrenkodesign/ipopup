@@ -8,7 +8,8 @@ var popConfig = {
   show: true,
   showtimes: 3,
   poptimer: 20,
-  siteleave: true
+  siteleave: true,
+  css: 'https://petrenkodesign.github.io/ipopup/css/main.css'
 };
 
 window.onload = function() {
@@ -21,7 +22,7 @@ window.onload = function() {
 
         // add link to style script on the site
         if(document.createStyleSheet) {
-          document.createStyleSheet('https://petrenkodesign.github.io/ipopup/css/main.css');
+          document.createStyleSheet(popConfig.css);
           if(debug) console.log("Create link to CSS with createStyleSheet");
         }
         else {
@@ -66,7 +67,7 @@ window.onload = function() {
           setCookie('ipop_frame_num', ipop_frame_num, 1);
 
           document.getElementById("ipopup").hidden = false; //crank
-          document.getElementById("qpopup").hidden = false; 
+          document.getElementById("qpopup").hidden = false;
         }
 
     } // end of cheking popup showin status
