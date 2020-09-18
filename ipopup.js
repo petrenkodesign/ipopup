@@ -39,7 +39,7 @@ window.onload = function() {
             popBody.hidden = true; //crank
         var popContent = '<div class="popup" id="ipopContent" style="background-color:'+popConfig.bgColor+'">';
             popContent +='<h2>'+popConfig.heder+'</h2>';
-            popContent +='<a id="closepop" href="#">&times;</a>';
+            popContent +='<a id="closepop" class="closepop" href="#">&times;</a>';
             popContent +='<div class="content">'+popConfig.content+'</div>';
             popContent +='</div>';
             popBody.innerHTML = popContent;

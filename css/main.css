@@ -42,7 +42,7 @@
   font-weight: 400;
 }
 
-#closepop {
+.closepop {
   position: absolute;
   top: 20px;
   right: 30px;
@@ -53,7 +53,7 @@
   color: #333;
 }
 
-#closepop:hover {
+.closepop:hover {
   color: #06D85F;
 }
 
