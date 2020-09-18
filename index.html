@@ -36,5 +36,27 @@
     <p style="text-align:center; width:100%;">
       <button onclick="deleteAllCookies();" style="border: 1px solid #fff; padding:10px; background-color:#17202A ; color:#fff; cursor:pointer">Clear all Cookies</button>
     </p>
+
+    <a href="#qpopup" class="iPopButton" style="left:0; right:20px">
+      <img src="https://petrenkodesign.github.io/ipopup/img/question.png">
+    </a>
+
+    <div id="qpopup" class="overlay">
+      <div class="popup" id="ipopContent" style="background-color:#fff">
+          <h2>Code of this iPopUp</h2>
+          <a id="closepop" href="#">&times;</a>
+          <div class="content">
+            <code>
+              <script src="https://petrenkodesign.github.io/ipopup/ipopup.js"></script>
+              <script type="text/javascript">
+                popConfig.heder = 'Отримайте 10% знижки за підписку';
+                popConfig.content = 'Заповніть форму, та отримайте знижку на перше замовлення <br><br><iframe id="frame_form" frameborder="0" src="https://secure.esputnik.com/886xBqy728s" width="100%" height="40%" scrolling="no"></iframe>';
+              </script>
+            </code>
+          </div>
+      </div>
+    </div>
+
+
   </body>
 </html>

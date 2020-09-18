@@ -86,6 +86,7 @@ if (popConfig.siteleave) {
 function addButton() {
   var popButton = document.createElement("a");
       popButton.setAttribute("id", "iPopButton");
+      popButton.setAttribute("class", "iPopButton");
       popButton.setAttribute("href", "#ipopup");
       popButton.innerHTML = '<img src="https://petrenkodesign.github.io/ipopup/img/icon.png">';
   document.getElementsByTagName("body")[0].appendChild(popButton);

@@ -63,7 +63,7 @@
   }
 }
 
-#iPopButton {
+.iPopButton {
   z-index: 100000002;
   left: 20px;
   bottom: 60px;
@@ -85,7 +85,7 @@
   align-items: center;
 }
 
-#iPopButton img {
+.iPopButton img {
   width: 33px;
   height: 33px;
   vertical-align: middle;
