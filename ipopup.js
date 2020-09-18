@@ -27,8 +27,8 @@ window.onload = function() {
         }
         else {
           var css_element = document.createElement('link');
-          css_element.rel='stylesheet';
-          css_element.href='https://petrenkodesign.github.io/ipopup/css/main.css';
+          css_element.rel = 'stylesheet';
+          css_element.href = popConfig.css;
           document.getElementsByTagName("head")[0].appendChild(css_element);
           if(debug) console.log("Create link to CSS with createElement");
         }
