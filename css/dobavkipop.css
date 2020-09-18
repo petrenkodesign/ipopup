@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
 .overlay {
   visibility: hidden;
   position: fixed;
@@ -8,7 +11,12 @@
   background: rgba(0, 0, 0, 0.2);
   transition: opacity 800ms;
   opacity: 0;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
+
 .overlay:target {
   visibility: visible;
   opacity: 1;
@@ -18,37 +26,47 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #fff;
+  padding: 37px;
+  background-color: #fff;
   width: 100%;
   height: 100%;
-  max-width: 320px;
+  max-width: 500px;
   max-height: 375px;
   position: relative;
   transition: all 1s ease-in-out;
-  font-family: 'Open Sans', sans-serif;
-  color: #878787;
+  box-shadow: 0 3px 11px 2px rgba(0, 0, 0, 0.3);
 }
 
 .popup h2 {
-  margin-top: 0;
-  font-size: 24px;
+  max-width: 370px;
+  margin-top: 15px;
+  font-size: 22px;
   font-weight: 300;
+  line-height: 1.2;
   text-transform: uppercase;
+  font-family: 'Open Sans', sans-serif;
+  color: #000006;
 }
 
 .popup .content {
-  max-height: 70%;
-  overflow: auto;
+  /* max-height: 70%; */
+  /* overflow: auto; */
+  max-width: 370px;
+  margin: 10px 0 0;
+  letter-spacing: .3px;
+  line-height: 1.5;
   font-size: 14px;
   font-weight: 400;
+  font-family: 'Open Sans', sans-serif;
+  color: #000;
 }
 
 .closepop {
   position: absolute;
-  top: -20px;
+  top: -10px;
   right: 10px;
   transition: all 200ms;
-  font-size: 64px;
+  font-size: 58px;
   font-weight: 100;
   text-decoration: none;
   color: #333;
@@ -90,4 +108,8 @@
   width: 33px;
   height: 33px;
   vertical-align: middle;
+}
+
+iframe button[type=submit], iframe input[type=submit] {
+  background: #000 !important;
 }
