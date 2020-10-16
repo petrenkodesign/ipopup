@@ -86,7 +86,7 @@
     width: 70%;
   }
   .iPopButton {
-     bottom: 120px;
+     bottom: 120px !important;
   }
 }
 
