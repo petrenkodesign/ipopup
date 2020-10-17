@@ -67,6 +67,7 @@ window.onload = function() {
           setCookie('ipop_frame_num', ipop_frame_num, 1);
 
           document.getElementById("ipopup").hidden = false; //crank
+          document.getElementById("qpopup").hidden = false;
         }
 
     } // end of cheking popup showin status
