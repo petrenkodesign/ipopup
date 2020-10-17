@@ -91,6 +91,9 @@
      bottom: 100px !important;
      right: 25px !important;
   }
+  .popup h2 {
+    font-size: 18px;
+  }
 }
 
 .iPopButton {
