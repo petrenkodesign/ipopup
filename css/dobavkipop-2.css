@@ -94,6 +94,9 @@
   .popup h2 {
     font-size: 18px;
   }
+  .popup .content {
+    font-size: 12px;
+  }
 }
 
 .iPopButton {
