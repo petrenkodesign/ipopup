@@ -12,7 +12,7 @@
   background: rgba(0, 0, 0, 0.2);
   transition: opacity 800ms;
   opacity: 0;
-  z-index: 10000000002;
+  z-index: 10000000000002;
   /* font-smooth: always;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -85,7 +85,7 @@
 
 @media screen and (max-width: 700px){
   .popup{
-    width: 70%;
+    width: 90%;
   }
   .iPopButton {
      bottom: 100px !important;
