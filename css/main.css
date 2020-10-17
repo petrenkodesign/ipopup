@@ -17,7 +17,7 @@
 }
 
 .popup {
-  display: inline-grid;
+  display: inline-block;
   top: 50%;
   transform: translateY(-50%);
   margin: auto;
