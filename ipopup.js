@@ -75,7 +75,7 @@ window.onload = function() {
 
 // listen when site leave and show popup
 if (popConfig.siteleave) {
-  document.addEventListener("mouseout", function(e) {
+  document.addEventListener("mouseleave", function(e) {
     if (popConfig.show) {
       window.location.hash="ipopup";
       if(debug) console.log("Site leave!");
