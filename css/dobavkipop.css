@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
 
 .overlay {
-  display: block;
+  /*display: block;*/
   visibility: hidden;
   position: fixed;
   top: 0;
@@ -25,7 +25,7 @@
 }
 
 .popup {
-  display: inline-block;
+  /*display: inline-block;*/
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
