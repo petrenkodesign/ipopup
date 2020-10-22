@@ -5,6 +5,7 @@ var popConfig = {
   bgColor:"#fff",
   bgUrl:"https://petrenkodesign.github.io/ipopup/img/bg.jpg",
   button: true,
+  butRight: false,
   show: true,
   showtimes: 3,
   poptimer: 20,
@@ -93,6 +94,9 @@ function addButton() {
   var popButton = document.createElement("button");
       popButton.setAttribute("id", "iPopButton");
       popButton.setAttribute("class", "iPopButton");
+      if (popConfig.butRight)  {
+        popButton.style.cssText = "left: auto; right: 20px; bottom: 120px !important";
+      }
       popButton.innerHTML = '<img src="https://petrenkodesign.github.io/ipopup/img/icon.png">';
       popButton.onclick = function() {
         document.getElementById("ipopup").className += ' show';
