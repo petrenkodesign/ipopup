@@ -148,10 +148,10 @@ function statusPop() {
   var statusipop = getCookie('statusipop');
   if (statusipop=='off') {
     popConfig.show = false;
-    var ipopup = document.getElementById("ipopup");
-    if(ipopup) ipopup.remove();
-    var ipopup_button = document.getElementById("iPopButton");
-    if(ipopup_button) ipopup_button.remove();
+    // var ipopup = document.getElementById("ipopup");
+    // if(ipopup) ipopup.remove();
+    // var ipopup_button = document.getElementById("iPopButton");
+    // if(ipopup_button) ipopup_button.remove();
   }
 }
 // function count of how many time close ipopup
