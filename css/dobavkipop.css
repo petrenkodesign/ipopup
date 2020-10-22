@@ -3,8 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
 */
 .overlay {
-  /*display: block;*/
-  visibility: hidden;
+  display: none;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -14,14 +13,10 @@
   transition: opacity 800ms;
   opacity: 0;
   z-index: 10000000002;
-  /* font-smooth: always;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility; */
 }
 
-.overlay:target {
-  visibility: visible;
+.show {
+  display: block;
   opacity: 1;
 }
 
@@ -70,7 +65,7 @@
   box-sizing: border-box;
 }
 
-.closepop {
+.closepop, .closepop:active, .closepop:after {
   position: absolute;
   top: -10px;
   right: 10px;
@@ -79,6 +74,11 @@
   font-weight: 300;
   text-decoration: none;
   color: #333;
+  font-family: serif;
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline:none;
 }
 
 .closepop:hover {

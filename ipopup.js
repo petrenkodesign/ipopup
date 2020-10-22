@@ -37,15 +37,20 @@ window.onload = function() {
         var popBody = document.createElement("div");
             popBody.setAttribute("class", "overlay");
             popBody.setAttribute("id", "ipopup");
-            popBody.hidden = true; //crank
         var popContent = '<div class="popup" id="ipopContent" style="background-color:'+popConfig.bgColor+'">';
-            popContent +='<a id="closepop" class="closepop" href="#">&times;</a>';
+            popContent +='<button id="closepop" class="closepop">&times;</button>';
             popContent +='<h2>'+popConfig.heder+'</h2>';
             popContent +='<div class="content">'+popConfig.content+'</div>';
             popContent +='</div>';
             popBody.innerHTML = popContent;
         document.getElementsByTagName("body")[0].appendChild(popBody);
-        document.getElementById("closepop").onclick = function() { closePop() };
+
+        var cpo = document.getElementsByClassName("closepop");
+        for(var i = 0; i < cpo.length; i++) {
+           cpo[i].onclick = function() {
+             closePop(this);
+           };
+        }
 
         // chek configuration and customize ipopup
 
@@ -66,7 +71,7 @@ window.onload = function() {
           else ipop_frame_num++;
           setCookie('ipop_frame_num', ipop_frame_num, 1);
 
-          document.getElementById("ipopup").hidden = false; //crank
+
         }
 
     } // end of cheking popup showin status
@@ -77,7 +82,7 @@ window.onload = function() {
 if (popConfig.siteleave) {
   document.addEventListener("mouseleave", function(e) {
     if (popConfig.show) {
-      window.location.hash="ipopup";
+      document.getElementById("ipopup").className += ' show';
       if(debug) console.log("Site leave!");
     }
   });
@@ -85,11 +90,13 @@ if (popConfig.siteleave) {
 
 // function add on site start button for popup
 function addButton() {
-  var popButton = document.createElement("a");
+  var popButton = document.createElement("button");
       popButton.setAttribute("id", "iPopButton");
       popButton.setAttribute("class", "iPopButton");
-      popButton.setAttribute("href", "#ipopup");
       popButton.innerHTML = '<img src="https://petrenkodesign.github.io/ipopup/img/icon.png">';
+      popButton.onclick = function() {
+        document.getElementById("ipopup").className += ' show';
+      }
   document.getElementsByTagName("body")[0].appendChild(popButton);
 }
 
@@ -126,7 +133,7 @@ function chrpage() {
 function timerUp() {
   if (popConfig.show) {
     setTimeout(function() {
-      window.location.hash="ipopup";
+      document.getElementById("ipopup").className += ' show';
       if(debug) console.log("20 min left after first load of the site!");
     }, popConfig.poptimer*60000);
   }
@@ -144,17 +151,24 @@ function statusPop() {
   }
 }
 // function count of how many time close ipopup
-function closePop() {
-  var numofclose = getCookie('ncipop');
-  var ipop_frame_num = getCookie('ipop_frame_num'); // iframe reload count
-  if (numofclose >=  popConfig.showtimes || ipop_frame_num >= 2) {
-    setCookie('statusipop', 'off');
-    statusPop();
+function closePop(e) {
+  var ipo = document.getElementsByClassName("show");
+  for(var i = 0; i < ipo.length; i++) {
+     ipo[i].className = ipo[i].className.replace(/\bshow\b/g, "");
   }
-  else {
-    if(numofclose==false) numofclose = 1;
-    numofclose++;
-    setCookie('ncipop', numofclose);
+
+  if(e.id=="closepop") {
+      var numofclose = getCookie('ncipop');
+      var ipop_frame_num = getCookie('ipop_frame_num'); // iframe reload count
+      if (numofclose >=  popConfig.showtimes || ipop_frame_num >= 2) {
+        setCookie('statusipop', 'off');
+        statusPop();
+      }
+      else {
+        if(numofclose==false) numofclose = 1;
+        numofclose++;
+        setCookie('ncipop', numofclose);
+      }
   }
 }
 
