@@ -87,6 +87,7 @@ if (popConfig.siteleave) {
       if(debug) console.log("Site leave!");
     }
   });
+  
 }
 
 // function add on site start button for popup
