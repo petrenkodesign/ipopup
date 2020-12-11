@@ -83,7 +83,9 @@ window.onload = function() {
 if (popConfig.siteleave && getCookie('statusipop')!=='off') {
   document.addEventListener("mouseleave", function(e) {
     if (popConfig.show) {
-      document.getElementById("ipopup").className += ' show';
+      var popup = document.getElementById("ipopup");
+      console.log(popup);
+      if(popup) popup.className += ' show';
       if(debug) console.log("Site leave!");
     }
   });
