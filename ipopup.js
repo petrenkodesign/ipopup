@@ -15,7 +15,7 @@ var popConfig = {
 
 window.onload = function() {
     // cheking if popup status off
-    statusPop();
+    // statusPop();
     timerUp();
     chrpage(); // iframe load chekout
 
@@ -80,14 +80,14 @@ window.onload = function() {
 } // end of document load
 
 // listen when site leave and show popup
-if (popConfig.siteleave) {
+if (popConfig.siteleave && getCookie('statusipop')!=='off') {
   document.addEventListener("mouseleave", function(e) {
     if (popConfig.show) {
       document.getElementById("ipopup").className += ' show';
       if(debug) console.log("Site leave!");
     }
   });
-  
+
 }
 
 // function add on site start button for popup
@@ -136,7 +136,7 @@ function chrpage() {
 
 // function start popup time from first start
 function timerUp() {
-  if (popConfig.show) {
+  if (popConfig.show && getCookie('statusipop')!=='off') {
     setTimeout(function() {
       document.getElementById("ipopup").className += ' show';
       if(debug) console.log("20 min left after first load of the site!");
