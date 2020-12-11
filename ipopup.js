@@ -38,7 +38,7 @@ window.onload = function() {
         var popBody = document.createElement("div");
             popBody.setAttribute("class", "overlay");
             popBody.setAttribute("id", "ipopup");
-        var popContent = '<div class="popup" id="ipopContent" style="background-color:'+popConfig.bgColor+'">';
+        var popContent = '<div class="gif-popup" id="ipopContent" style="background-color:'+popConfig.bgColor+'">';
             popContent +='<button id="closepop" class="closepop">&times;</button>';
             popContent +='<h2>'+popConfig.heder+'</h2>';
             popContent +='<div class="content">'+popConfig.content+'</div>';

@@ -20,7 +20,7 @@
   opacity: 1;
 }
 
-.popup {
+.gif-popup {
   display: inline-block;
   top: 50%;
   left: 50%;
@@ -36,7 +36,7 @@
   box-shadow: 0 3px 11px 2px rgba(0, 0, 0, 0.3);
 }
 
-.popup h2 {
+.gif-popup h2 {
   max-width: 370px;
   margin-top: 15px;
   margin-bottom: 10px;
@@ -50,7 +50,7 @@
   box-sizing: border-box;
 }
 
-.popup .content {
+.gif-popup .content {
   /* max-height: 70%; */
   /* overflow: auto; */
   max-width: 370px;
@@ -87,7 +87,7 @@
 }
 
 @media screen and (max-width: 700px){
-  .popup{
+  .gif-popup{
     width: 70%;
   }
 }
