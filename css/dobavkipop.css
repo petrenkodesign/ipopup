@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
 */
-.gif-overlay {
+.ipo-overlay {
   display: none;
   position: fixed;
   top: 0;
@@ -20,7 +20,7 @@
   opacity: 1;
 }
 
-.gif-popup {
+.ipo-popup {
   display: inline-block;
   top: 50%;
   left: 50%;
@@ -36,7 +36,7 @@
   box-shadow: 0 3px 11px 2px rgba(0, 0, 0, 0.3);
 }
 
-.gif-popup h2 {
+.ipo-popup h2 {
   max-width: 370px;
   margin-top: 15px;
   margin-bottom: 10px;
@@ -50,7 +50,7 @@
   box-sizing: border-box;
 }
 
-.gif-popup .content {
+.ipo-popup .content {
   /* max-height: 70%; */
   /* overflow: auto; */
   max-width: 370px;
@@ -87,7 +87,7 @@
 }
 
 @media screen and (max-width: 700px){
-  .gif-popup{
+  .ipo-popup{
     width: 70%;
   }
 }

@@ -1,4 +1,4 @@
-.overlay {
+.ipo-overlay {
   dispaly: block;
   visibility: hidden;
   position: fixed;
@@ -11,12 +11,12 @@
   opacity: 0;
   z-index: 10000000002;
 }
-.overlay:target {
+.ipo-overlay:target {
   visibility: visible;
   opacity: 1;
 }
 
-.popup {
+.ipo-popup {
   display: inline-block;
   top: 50%;
   transform: translateY(-50%);
@@ -31,14 +31,14 @@
   color: #878787;
 }
 
-.popup h2 {
+.ipo-popup h2 {
   margin-top: 0;
   font-size: 24px;
   font-weight: 300;
   text-transform: uppercase;
 }
 
-.popup .content {
+.ipo-popup .content {
   max-height: 70%;
   overflow: auto;
   font-size: 14px;
@@ -61,7 +61,7 @@
 }
 
 @media screen and (max-width: 700px){
-  .popup{
+  .ipo-popup{
     width: 70%;
   }
 }
