@@ -10,7 +10,10 @@ var popConfig = {
   showtimes: 3,
   poptimer: 20,
   siteleave: true,
-  css: 'https://petrenkodesign.github.io/ipopup/css/main.css'
+  css: 'https://petrenkodesign.github.io/ipopup/css/main.css',
+  popStyle:none,
+  headerStyle: none,
+  contentStyle: none
 };
 
 window.onload = function() {
@@ -57,7 +60,10 @@ window.onload = function() {
 
         // add custom styles to popup
         if (popConfig.bgUrl!='none') document.getElementById("ipopContent").style.cssText += '; background-image: url('+popConfig.bgUrl+'); background-position: 50% 50%; background-repeat: no-repeat; background-size: cover';
-
+        if (popConfig.popStyle!='none') document.getElementById("ipopContent").style.cssText += '; '+popConfig.popStyle;
+        if (popConfig.headerStyle!='none') document.getElementById("ipopContentHeader").style.cssText = popConfig.headerStyle;
+        if (popConfig.contentStyle!='none') document.getElementById("ipopContentBody").style.cssText = popConfig.contentStyle;
+      
         // add start button
         if (popConfig.button==true) addButton();
 
