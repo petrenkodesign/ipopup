@@ -11,9 +11,9 @@ var popConfig = {
   poptimer: 20,
   siteleave: true,
   css: 'https://petrenkodesign.github.io/ipopup/css/main.css',
-  popStyle:none,
-  headerStyle: none,
-  contentStyle: none
+  popStyle: 'none',
+  headerStyle: 'none',
+  contentStyle: 'none'
 };
 
 window.onload = function() {
