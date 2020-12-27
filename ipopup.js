@@ -43,8 +43,8 @@ window.onload = function() {
             popBody.setAttribute("id", "ipopup");
         var popContent = '<div class="ipo-popup" id="ipopContent" style="background-color:'+popConfig.bgColor+'">';
             popContent +='<button id="closepop" class="closepop">&times;</button>';
-            popContent +='<h2>'+popConfig.heder+'</h2>';
-            popContent +='<div class="content">'+popConfig.content+'</div>';
+            popContent +='<h2 id="ipopContentHeader">'+popConfig.heder+'</h2>';
+            popContent +='<div class="content" id="ipopContentBody">'+popConfig.content+'</div>';
             popContent +='</div>';
             popBody.innerHTML = popContent;
         document.getElementsByTagName("body")[0].appendChild(popBody);
