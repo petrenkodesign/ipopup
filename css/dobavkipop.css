@@ -1,7 +1,6 @@
-/*
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
-*/
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap'); */
+
 .ipo-overlay {
   display: none;
   position: fixed;
@@ -25,56 +24,108 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 37px;
+  background-position: 100% 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
   background-color: #fff;
   width: 100%;
   height: 100%;
-  max-width: 426px;
-  max-height: 350px;
+  max-width: 900px;
+  max-height: 600px;
   position: relative;
   transition: all 1s ease-in-out;
   box-shadow: 0 3px 11px 2px rgba(0, 0, 0, 0.3);
 }
 
-.ipo-popup h2 {
-  max-width: 370px;
-  margin-top: 15px;
-  margin-bottom: 10px;
-  font-size: 24px;
-  font-weight: 300;
-  line-height: 1.2;
-  text-transform: uppercase;
-  text-align: left;
-  font-family: 'Open Sans', sans-serif;
-  color: #000006;
-  box-sizing: border-box;
-}
-
+/* ----------------- Content style */
 .ipo-popup .content {
-  /* max-height: 70%; */
-  /* overflow: auto; */
-  max-width: 370px;
-  height: 80%;
-  margin: 10px 0 0;
-  letter-spacing: .3px;
-  line-height: 1.5;
-  font-size: 14px;
-  font-weight: 400;
-  text-align: left;
-  font-family: 'Open Sans', sans-serif;
-  color: #878787;
+  width: 50%;
+  height: 100%;
+  margin: 0;
+  font-size: 24px;
+  text-align: center;
+  align-content: center;
+  color: #575757;
+  font-family: 'Montserrat', sans-serif;
+  background: #fff;
   box-sizing: border-box;
 }
 
+.ipo-popup .content .block {
+  display: inline-block;
+  width: 300px;
+  margin-top: 55px;
+}
+
+.ipo-popup .content h1 {
+  font-size: 122px;
+  font-weight: 500;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  font-family: inherit;
+  color: #8abe43;
+}
+/* ----------------- Form style */
+.ipo-popup .content form {
+  margin: 100px 0 50px 0;
+}
+
+.ipo-popup .content input[type=email], .ipo-popup .content input[type=text] {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #575757;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  padding: 10px;
+  border-bottom: 2px solid #ccc;
+}
+.ipo-popup .content input[type=email]::placeholder, .ipo-popup .content input[type=email]::placeholder {
+  color: #ccc;
+}
+
+.ipo-popup .content input[type=email]:focus, .ipo-popup .content input[type=text]:focus {
+  border: none;
+  background: none;
+  outline: none;
+  border-bottom: 2px solid #8abe43;
+}
+
+.input-error {
+  border-color: red !important;
+}
+.input-error::placeholder {
+  color: red !important;
+}
+
+#formButton {
+  background-color: #8abe43;
+  color: #fff;
+  font-size: 24px;
+  font-family: 'Montserrat', sans-serif;
+  padding: 25px 50px;
+  border-radius: 40px;
+  border: none;
+}
+#formButton:focus {
+  outline: none;
+}
+#formButton:active {
+  transform: scale(0.9, 0.9);
+}
+/* ----------------- Close button style */
 .closepop, .closepop:active, .closepop:after {
   position: absolute;
-  top: -10px;
+  /* top: -10px; */
   right: 10px;
   transition: all 200ms;
-  font-size: 58px;
+  font-size: 48px;
   font-weight: 300;
   text-decoration: none;
-  color: #333;
+  color: #8abe43;
   font-family: serif;
   border: none;
   background: none;
@@ -86,12 +137,42 @@
   color: #6C3483;
 }
 
+/* ----------------- Mobile style */
 @media screen and (max-width: 700px){
-  .ipo-popup{
-    width: 70%;
+  .ipo-popup {
+    max-height: none;
+    background-position: 0 0;
+  }
+  .ipo-popup .content {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+  }
+  .ipo-popup .content .block {
+    margin: 0;
+    width: 100%;
+    max-width: 300px;
+  }
+  .ipo-popup .content h1 {
+    background: linear-gradient(0deg, #fff 30%, transparent);
+    position: absolute;
+    top: -220;
+    padding-top: 100;
+    left: 0;
+    width: 100%;
+
+  }
+  .ipo-popup .content form {
+    margin: 20% 0;
+  }
+}
+@media screen and (max-height: 670px){
+  .ipo-popup .content form {
+    margin: 10% 0;
   }
 }
 
+/* ----------------- Gift button style */
 .iPopButton {
   z-index: 100000002;
   left: 20px;
@@ -120,6 +201,6 @@
   vertical-align: middle;
 }
 
-iframe button[type=submit], iframe input[type=submit] {
+/* iframe button[type=submit], iframe input[type=submit] {
   background: #000 !important;
-}
+} */
