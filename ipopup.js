@@ -1,9 +1,10 @@
 var debug = false;
 var popConfig = {
-  heder:"This is popup",
-  content:"Hello there! I am yor pop, bro!)",
-  bgColor:"#fff",
-  bgUrl:"https://petrenkodesign.github.io/ipopup/img/bg.jpg",
+  heder: "This is popup",
+  content: "Hello there! I am yor pop, bro!)",
+  bgColor: "#fff",
+  bgUrl: "https://petrenkodesign.github.io/ipopup/img/bg.jpg",
+  bgStyle: "none",
   button: true,
   butRight: false,
   show: true,
@@ -13,14 +14,16 @@ var popConfig = {
   css: 'https://petrenkodesign.github.io/ipopup/css/main.css',
   popStyle: 'none',
   headerStyle: 'none',
-  contentStyle: 'none'
+  contentStyle: 'none',
+  form: 'none',
+  formButton: 'none'
 };
 
 window.onload = function() {
     // cheking if popup status off
     // statusPop();
     timerUp();
-    chrpage(); // iframe load chekout
+    // chrpage(); // iframe load chekout
 
     if (popConfig.show) {
 
@@ -42,10 +45,13 @@ window.onload = function() {
             popBody.setAttribute("class", "ipo-overlay");
             popBody.setAttribute("id", "ipopup");
         var popContent = '<div class="ipo-popup" id="ipopContent" style="background-color:'+popConfig.bgColor+'">';
-            popContent +='<button id="closepop" class="closepop">&times;</button>';
-            popContent +='<h2 id="ipopContentHeader">'+popConfig.heder+'</h2>';
-            popContent +='<div class="content" id="ipopContentBody">'+popConfig.content+'</div>';
-            popContent +='</div>';
+            popContent += '<button id="closepop" class="closepop">&times;</button>';
+        if(popConfig.heder) popContent += '<h2 id="ipopContentHeader">'+popConfig.heder+'</h2>';
+            popContent += '<div class="content" id="ipopContentBody">';
+            popContent += '<div class="block">'+popConfig.content;
+        if(popConfig.form!='none') popContent += popConfig.form;
+        if(popConfig.formButton!='none') popContent += '<button id="formButton">'+popConfig.formButton+'</button>';
+            popContent += '</div></div></div>';
             popBody.innerHTML = popContent;
         document.getElementsByTagName("body")[0].appendChild(popBody);
 
@@ -59,27 +65,34 @@ window.onload = function() {
         // chek configuration and customize ipopup
 
         // add custom styles to popup
-        if (popConfig.bgUrl!='none') document.getElementById("ipopContent").style.cssText += '; background-image: url('+popConfig.bgUrl+'); background-position: 50% 50%; background-repeat: no-repeat; background-size: cover';
+        if (popConfig.bgStyle=='none') popConfig.bgStyle = '';
+        if (popConfig.bgUrl!='none') document.getElementById("ipopContent").style.cssText += '; background-image: url('+popConfig.bgUrl+'); '+popConfig.bgStyle;
         if (popConfig.popStyle!='none') document.getElementById("ipopContent").style.cssText += '; '+popConfig.popStyle;
         if (popConfig.headerStyle!='none') document.getElementById("ipopContentHeader").style.cssText = popConfig.headerStyle;
         if (popConfig.contentStyle!='none') document.getElementById("ipopContentBody").style.cssText = popConfig.contentStyle;
-      
+
         // add start button
         if (popConfig.button==true) addButton();
 
-        // iframe submit listen for esputnik
-        document.getElementById("frame_form").onload = function () {
-          this.addEventListener("mouseleave", function(e) {
-            if(debug) console.log("Iam leave frame");
-          });
-
-          var ipop_frame_num = getCookie('ipop_frame_num');
-          if (ipop_frame_num == false) ipop_frame_num = 1;
-          else ipop_frame_num++;
-          setCookie('ipop_frame_num', ipop_frame_num, 1);
-
-
+        // add form functional
+        if(popConfig.formButton!='none') {
+          document.getElementById("formButton").addEventListener("click", sendForm);
         }
+
+
+        // iframe submit listen for esputnik
+        // document.getElementById("frame_form").onload = function () {
+        //   this.addEventListener("mouseleave", function(e) {
+        //     if(debug) console.log("Iam leave frame");
+        //   });
+        //
+        //   var ipop_frame_num = getCookie('ipop_frame_num');
+        //   if (ipop_frame_num == false) ipop_frame_num = 1;
+        //   else ipop_frame_num++;
+        //   setCookie('ipop_frame_num', ipop_frame_num, 1);
+        //
+        //
+        // }
 
     } // end of cheking popup showin status
 
@@ -171,13 +184,13 @@ function closePop(e) {
 
   if(e.id=="closepop") {
       var numofclose = getCookie('ncipop');
+      if(numofclose==false) numofclose = 1;
       var ipop_frame_num = getCookie('ipop_frame_num'); // iframe reload count
       if (numofclose >=  popConfig.showtimes || ipop_frame_num >= 2) {
         setCookie('statusipop', 'off');
         statusPop();
       }
       else {
-        if(numofclose==false) numofclose = 1;
         numofclose++;
         setCookie('ncipop', numofclose);
       }
@@ -216,4 +229,79 @@ function deleteAllCookies() {
           document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT';
     }
     document.location.reload();
+}
+
+// send data to server function
+function sendForm() {
+  // remove error selector if exist
+  var errorel = document.querySelectorAll('.input-error');
+  if(errorel.length) {
+    errorel.forEach(function(el) {
+      el.classList.remove('input-error');
+    });
+  }
+  // find required filds
+  var popForm = document.querySelector('#ipopContent form');
+  var elements = popForm.elements;
+  var sending_data = {};
+  var elements_audit = Array.from(elements).some(function(el, index) {
+    var elname = el.getAttribute('name');
+    var forminput = document.querySelector('#ipopContent form input[name='+elname+']');
+
+    if(el.required && !el.value) {
+      forminput.classList.add('input-error');
+      forminput.setAttribute('placeholder', "Error, "+elname+" - is empty!");
+      return false;
+    }
+
+    if(elname=='email' && !isEmail(el.value)) {
+      forminput.classList.add('input-error');
+      forminput.value = "";
+      forminput.setAttribute('placeholder', "Please enter a valid email!");
+      return false;
+    }
+
+    sending_data[elname] = el.value;
+    if(Object.keys(sending_data).length===elements.length) return true;
+  });
+
+  if(!elements_audit) return false;
+  sending_data['page'] = window.location.href;
+
+  // send elements to API key
+  var url = new URL("https://console.smartfactory.com.ua/api/");
+  var api_key = 'Atc9EnPkc4DBQdbFzKSu4T2JsbF26yMpJePPwv7efy';
+
+  var params = { key: api_key, do: "esputnik-subscribe", data: JSON.stringify(sending_data)};
+  var query = Object.keys(params).map((key) => {
+       return encodeURIComponent(key) + '=' + encodeURIComponent(params[key])
+  }).join('&');
+  url.search = query;
+
+  var xrequest = new XMLHttpRequest();
+  xrequest.onload = function() {
+    var answer = JSON.parse(this.responseText);
+    if(answer.id!=='undefined') {
+      document.querySelector('#ipopContent form').remove();
+      document.querySelector('#formButton').remove();
+      var done = document.createElement("div");
+      done.innerHTML = "<p><b>Підписку оформлено!</b></p>";
+      done.style.color = "#8abe43";
+      document.querySelector('#ipopContent .block').appendChild(done);
+    }
+  }
+  xrequest.onerror = function(error) {
+    console.log(error);
+  }
+  xrequest.open('GET', url, true);
+  xrequest.send();
+
+}
+
+// fields test function
+function isEmail(email) {
+  return /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(email);
+}
+function isPhone(number) {
+  return /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g.test(number);
 }

@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="ipopup.js"></script>
+    <script type="text/javascript">
+      popConfig.heder = false;
+      popConfig.content = 'Даруємо знижку <h1>10%</h1> за підписку на наші новини';
+      popConfig.css = '/css/test.css';
+      popConfig.bgColor = '#fff';
+      popConfig.bgUrl = '/img/bg_2.jpg';
+      popConfig.butRight = true;
+      popConfig.button = true;
+      popConfig.butRight = true;
+      popConfig.poptimer = 20;
+      popConfig.showtimes = 1;
+      popConfig.form = '<form><input type="email" name="email" placeholder="Email" required></form>';
+      popConfig.formButton = 'Підписатись';
+    </script>
+
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        background-color: #34495E;
+      }
+      h1 {
+        color: #fff;
+        font-size: 80px;
+        margin-top: 20%;
+        text-align: center;
+        font-family: sans-serif;
+        text-transform: uppercase;
+      }
+      h1 span {
+        text-transform: initial;
+      }
+    </style>
+
+  </head>
+  <body>
+    <h1>Here, You can try use <br> <span>iPopUp</span></h1>
+    <p style="text-align:center; width:100%;">
+      <button onclick="deleteAllCookies();" style="border: 1px solid #fff; padding:10px; background-color:#17202A ; color:#fff; cursor:pointer">Clear all Cookies</button>
+    </p>
+
+  </body>
+</html>
