@@ -80,6 +80,22 @@
         color: #878787;
         box-sizing: border-box;
       }
+
+      .qclosepop, .qclosepop:active, .qclosepop:after {
+        position: absolute;
+        top: -10px;
+        right: 10px;
+        transition: all 200ms;
+        font-size: 58px;
+        font-weight: 300;
+        text-decoration: none;
+        color: #333;
+        font-family: serif;
+        border: none;
+        background: none;
+        cursor: pointer;
+        outline:none;
+      }
     </style>
 
   </head>
@@ -96,7 +112,7 @@
     <div id="qpopup" class="ipo-overlay" hidden style="z-index: 100000003;">
       <div class="qipo-popup" style="background-color:#fff; max-width: 900px; max-height:70%; height:auto; border-radius: 5px; width:90%">
           <h2 style="max-width: none;">Code of this iPopUp</h2>
-          <button class="closepop">&times;</button>
+          <button class="qclosepop">&times;</button>
           <div class="content" style="max-width: none;">
             <code>
               &lt;script src=&quot;https://petrenkodesign.github.io/ipopup/ipopup.js&quot;&gt;&lt;/script&gt;<br>
