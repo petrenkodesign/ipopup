@@ -3,14 +3,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://petrenkodesign.github.io/ipopup/ipopup.js"></script>
     <script type="text/javascript">
-      popConfig.heder = 'Отримайте 10% знижки за підписку';
-      popConfig.content = 'Заповніть форму, та отримайте знижку на перше замовлення <br><br><iframe id="frame_form" frameborder="0" src="https://secure.esputnik.com/8l7f0z9QiGs" width="100%" height="100%" scrolling="no"></iframe>';
+      popConfig.heder = false;
+      popConfig.content = 'Даруємо знижку <h1>10%</h1> за підписку на наші новини';
       popConfig.css = 'https://petrenkodesign.github.io/ipopup/css/dobavkipop.css';
+      popConfig.bgColor = '#fff';
+      popConfig.bgUrl = 'https://petrenkodesign.github.io/ipopup/img/bg.jpg';
       popConfig.butRight = true;
-      // popConfig.bgColor = '#ccc';
-      // popConfig.bgUrl = 'none';
-      // popConfig.button = false;
-      // popConfig.poptimer = 1;
+      popConfig.button = true;
+      popConfig.butRight = true;
+      popConfig.poptimer = 20;
+      popConfig.showtimes = 1;
+      popConfig.form = '<form><input type="email" name="email" placeholder="Email" required></form>';
+      popConfig.formButton = 'Підписатись';
     </script>
 
     <style>
@@ -51,14 +55,18 @@
             <code>
               &lt;script src=&quot;https://petrenkodesign.github.io/ipopup/ipopup.js&quot;&gt;&lt;/script&gt;<br>
               &lt;script type=&quot;text/javascript&quot;&gt;<br>
-              &nbsp;&nbsp;popConfig.heder = 'Отримайте 10% знижки за підписку';<br>
-              &nbsp;&nbsp;popConfig.content = 'Заповніть форму, та отримайте знижку на перше замовлення &lt;br&gt;&lt;br&gt;&nbsp;&lt;iframe id=&quot;frame_form&quot; frameborder=&quot;0&quot; src=&quot;https://secure.esputnik.com/8l7f0z9QiGs&quot;&nbsp;&nbsp;width=&quot;100%&quot; height=&quot;100%&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;';<br>
+              &nbsp;&nbsp;popConfig.heder = false;<br>
+              &nbsp;&nbsp;popConfig.content = 'Даруємо знижку &lt;h1&gt;10%&lt;/h1&gt; за підписку на наші новини';<br>
               &nbsp;&nbsp;popConfig.css = 'https://petrenkodesign.github.io/ipopup/css/dobavkipop.css';<br>
               &nbsp;&nbsp;popConfig.bgColor = '#fff';<br>
               &nbsp;&nbsp;popConfig.bgUrl = 'https://petrenkodesign.github.io/ipopup/img/bg.jpg';<br>
+              &nbsp;&nbsp;popConfig.butRight = true;<br>
               &nbsp;&nbsp;popConfig.button = true;<br>
               &nbsp;&nbsp;popConfig.butRight = true;<br>
               &nbsp;&nbsp;popConfig.poptimer = 20;<br>
+              &nbsp;&nbsp;popConfig.showtimes = 1;<br>
+              &nbsp;&nbsp;popConfig.form = '&lt;form&gt;&lt;input type=&quot;email&quot; name=&quot;email&quot; placeholder=&quot;Email&quot; required&gt;&lt;/form&gt;';<br>
+              &nbsp;&nbsp;popConfig.formButton = 'Підписатись';<br>
               &lt;/script&gt;
             </code>
           </div>
