@@ -268,7 +268,7 @@ function sendForm() {
   if(!elements_audit) return false;
   sending_data['page'] = window.location.href;
   var loading_img = '<img src="https://petrenkodesign.github.io/ipopup/img/loading.gif">';
-  document.querySelector('#ipopContent form').html(loading_img);
+  document.querySelector('#ipopContent form').innerHTML = loading_img;
 
   // send elements to API key
   var url = new URL("https://console.smartfactory.com.ua/api/");
