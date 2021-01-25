@@ -284,7 +284,7 @@ function sendForm() {
   xrequest.onload = function() {
     var answer = JSON.parse(this.responseText);
     console.log(answer.id);
-    if(answer.id!=='undefined') {
+    if(answer.id !== undefined) {
       document.querySelector('#ipopContent form').remove();
       document.querySelector('#formButton').remove();
       var done = document.createElement("div");
