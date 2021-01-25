@@ -131,6 +131,7 @@
   background: none;
   cursor: pointer;
   outline:none;
+  z-index: 10000000002;
 }
 
 .closepop:hover {
