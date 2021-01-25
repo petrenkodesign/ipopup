@@ -276,7 +276,7 @@ function sendForm() {
   var ipop_answer = document.querySelector('#ipop-answer');
   if (typeof(ipop_answer) != 'undefined' && ipop_answer != null) {
     ipop_answer.remove();
-    document.querySelector('#ipopContent form').style.cssText = "margin-top:100px";
+    if (window.innerWidth > 700) document.querySelector('#ipopContent form').style.cssText = "margin-top:100px";
   }
   
 
