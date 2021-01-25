@@ -77,6 +77,11 @@ window.onload = function() {
         // add form functional
         if(popConfig.formButton!='none') {
           document.getElementById("formButton").addEventListener("click", sendForm);
+          input.addEventListener("keyup", function(event) {
+            if (event.keyCode === 13) {
+              sendForm();
+            }
+          });
         }
 
 
@@ -301,18 +306,28 @@ function sendForm() {
     else if(answer.error !== undefined) {
       if(answer.error === "Records exist!") done.innerHTML = "<p><b>Помилка! email вже зареєстровано!</b></p>";
       else done.innerHTML = "<p><b>Error:"+answer.error+"</b></p>";
-      done.style.cssText = "color:#FF0000; max-height:100px; height:100vh";
-      document.querySelector('#ipopContent form').prepend(done);
-      document.querySelector('#ipopContent form').style.cssText = "margin-top:0";
+      if (window.innerWidth < 700) {
+        done.style.cssText = "color:#FF0000; position:absolute; top:0; left:0; width:100%";
+        document.querySelector('#ipopContent .block').prepend(done);
+      } else {
+        done.style.cssText = "color:#FF0000; max-height:100px; height:100vh";
+        document.querySelector('#ipopContent form').prepend(done);
+        document.querySelector('#ipopContent form').style.cssText = "margin-top:0";
+      }
       document.querySelector('#formButton').innerHTML = 'Підписатись';
     }
   }
   xrequest.onerror = function(error) {
     var done = document.createElement("div");
     done.innerHTML = "<p><b>Error: "+error+"</b></p>";
-    done.style.cssText = "color:#FF0000; max-height:100px; height:100vh";
-    document.querySelector('#ipopContent form').prepend(done);
-    document.querySelector('#ipopContent form').style.cssText = "margin-top:0";
+    if (window.innerWidth < 700) {
+      done.style.cssText = "color:#FF0000; position:absolute; top:0; left:0; width:100%";
+      document.querySelector('#ipopContent .block').prepend(done);
+    } else {
+      done.style.cssText = "color:#FF0000; max-height:100px; height:100vh";
+      document.querySelector('#ipopContent form').prepend(done);
+      document.querySelector('#ipopContent form').style.cssText = "margin-top:0";
+    }
     document.querySelector('#formButton').innerHTML = 'Підписатись';
   }
   xrequest.open('GET', url, true);
