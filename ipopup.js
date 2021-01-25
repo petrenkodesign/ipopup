@@ -79,6 +79,7 @@ window.onload = function() {
           document.getElementById("formButton").addEventListener("click", sendForm);
           document.querySelector('#ipopContent form [name="email"]').addEventListener("keyup", function(event) {
             if (event.keyCode === 13) {
+              event.preventDefault();
               sendForm();
               return false;
             }
