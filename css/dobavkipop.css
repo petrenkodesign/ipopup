@@ -156,8 +156,8 @@
   .ipo-popup .content h1 {
     background: linear-gradient(0deg, #fff 30%, transparent);
     position: absolute;
-    top: -220;
-    padding-top: 100;
+    top: -220px;
+    padding-top: 100px;
     left: 0;
     width: 100%;
 
