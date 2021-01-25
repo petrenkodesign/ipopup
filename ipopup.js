@@ -267,8 +267,10 @@ function sendForm() {
 
   if(!elements_audit) return false;
   sending_data['page'] = window.location.href;
-  var loading_img = '<img src="https://petrenkodesign.github.io/ipopup/img/loading.gif">';
-  document.querySelector('#ipopContent form').innerHTML = loading_img;
+  var loading_img = document.createElement("div");
+  loading_img.innerHTML = '<img src="https://petrenkodesign.github.io/ipopup/img/loading.gif">';
+  loading_img.setAttribute("id", "ipop-spiner");
+  document.querySelector('#ipopContent form').append(loading_img);
 
   // send elements to API key
   var url = new URL("https://console.smartfactory.com.ua/api/");
@@ -283,20 +285,24 @@ function sendForm() {
   var xrequest = new XMLHttpRequest();
   xrequest.onload = function() {
     var answer = JSON.parse(this.responseText);
-    console.log(answer.id);
+    var done = document.createElement("div");
+    document.querySelector('#ipop-spiner').remove();
     if(answer.id !== undefined) {
       document.querySelector('#ipopContent form').remove();
       document.querySelector('#formButton').remove();
-      var done = document.createElement("div");
       done.innerHTML = "<p><b>Підписку оформлено!</b></p>";
       done.style.color = "#8abe43";
       document.querySelector('#ipopContent .block').appendChild(done);
     }
+    else if(answer.error !== undefined) {
+      if(answer.error === "Records exist!") done.innerHTML = "<p><b>Помилка! email вже зареєстровано!</b></p>";
+      else done.innerHTML = "<p><b>Error:"+answer.error+"</b></p>";
+      done.style.color = "#FF0000";
+      document.querySelector('#ipopContent .block').appendChild(done);
+    }
   }
   xrequest.onerror = function(error) {
-    console.log(error);
-    document.querySelector('#ipopContent form').remove();
-    document.querySelector('#formButton').remove();
+    document.querySelector('#ipop-spiner').remove();
     var done = document.createElement("div");
     done.innerHTML = "<p><b>Error: "+error+"</b></p>";
     done.style.color = "#FF0000";
