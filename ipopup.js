@@ -307,7 +307,7 @@ function sendForm() {
       if(answer.error === "Records exist!") done.innerHTML = "<p><b>Помилка! email вже зареєстровано!</b></p>";
       else done.innerHTML = "<p><b>Error:"+answer.error+"</b></p>";
       if (window.innerWidth < 700) {
-        done.style.cssText = "color:#FF0000; position:absolute; top:0; left:0; width:100%";
+        done.style.cssText = "color:#FF0000; position:absolute; top:-50%; left:0; width:100%";
         document.querySelector('#ipopContent .block').prepend(done);
       } else {
         done.style.cssText = "color:#FF0000; max-height:100px; height:100vh";
@@ -321,7 +321,7 @@ function sendForm() {
     var done = document.createElement("div");
     done.innerHTML = "<p><b>Error: "+error+"</b></p>";
     if (window.innerWidth < 700) {
-      done.style.cssText = "color:#FF0000; position:absolute; top:0; left:0; width:100%";
+      done.style.cssText = "color:#FF0000; position:absolute; top:-50%; left:0; width:100%";
       document.querySelector('#ipopContent .block').prepend(done);
     } else {
       done.style.cssText = "color:#FF0000; max-height:100px; height:100vh";
