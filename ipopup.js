@@ -298,7 +298,7 @@ function sendForm() {
     document.querySelector('#ipopContent form').remove();
     document.querySelector('#formButton').remove();
     var done = document.createElement("div");
-    done.innerHTML = "<p><b>Error: ".error."</b></p>";
+    done.innerHTML = "<p><b>Error: "+error+"</b></p>";
     done.style.color = "#FF0000";
     document.querySelector('#ipopContent .block').appendChild(done);
   }
