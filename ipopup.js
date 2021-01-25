@@ -283,6 +283,7 @@ function sendForm() {
   var xrequest = new XMLHttpRequest();
   xrequest.onload = function() {
     var answer = JSON.parse(this.responseText);
+    console.log(answer.id);
     if(answer.id!=='undefined') {
       document.querySelector('#ipopContent form').remove();
       document.querySelector('#formButton').remove();
@@ -294,6 +295,12 @@ function sendForm() {
   }
   xrequest.onerror = function(error) {
     console.log(error);
+    document.querySelector('#ipopContent form').remove();
+    document.querySelector('#formButton').remove();
+    var done = document.createElement("div");
+    done.innerHTML = "<p><b>Error: ".error."</b></p>";
+    done.style.color = "#FF0000";
+    document.querySelector('#ipopContent .block').appendChild(done);
   }
   xrequest.open('GET', url, true);
   xrequest.send();
