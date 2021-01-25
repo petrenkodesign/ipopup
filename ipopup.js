@@ -271,6 +271,7 @@ function sendForm() {
   loading_img.innerHTML = '<img src="https://petrenkodesign.github.io/ipopup/img/loading.gif">';
   loading_img.setAttribute("id", "ipop-spiner");
   document.querySelector('#ipopContent form').append(loading_img);
+  document.querySelector('#ipop-answer').remove();
 
   // send elements to API key
   var url = new URL("https://console.smartfactory.com.ua/api/");
@@ -286,7 +287,8 @@ function sendForm() {
   xrequest.onload = function() {
     var answer = JSON.parse(this.responseText);
     var done = document.createElement("div");
-    document.querySelector('#ipop-spiner').remove();
+    done.setAttribute("id", "ipop-answer");
+//     document.querySelector('#ipop-spiner').remove();
     if(answer.id !== undefined) {
       document.querySelector('#ipopContent form').remove();
       document.querySelector('#formButton').remove();
@@ -298,7 +300,7 @@ function sendForm() {
       if(answer.error === "Records exist!") done.innerHTML = "<p><b>Помилка! email вже зареєстровано!</b></p>";
       else done.innerHTML = "<p><b>Error:"+answer.error+"</b></p>";
       done.style.color = "#FF0000";
-      document.querySelector('#ipopContent .block').appendChild(done);
+      document.querySelector('#ipopContent .block').append(done);
     }
   }
   xrequest.onerror = function(error) {
@@ -306,7 +308,7 @@ function sendForm() {
     var done = document.createElement("div");
     done.innerHTML = "<p><b>Error: "+error+"</b></p>";
     done.style.color = "#FF0000";
-    document.querySelector('#ipopContent .block').appendChild(done);
+    document.querySelector('#ipopContent .block').append(done);
   }
   xrequest.open('GET', url, true);
   xrequest.send();
