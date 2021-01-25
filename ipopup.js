@@ -80,6 +80,7 @@ window.onload = function() {
           document.querySelector('#ipopContent form [name="email"]').addEventListener("keyup", function(event) {
             if (event.keyCode === 13) {
               sendForm();
+              return false;
             }
           });
         }
