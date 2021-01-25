@@ -299,7 +299,7 @@ function sendForm() {
       if(answer.error === "Records exist!") done.innerHTML = "<p><b>Помилка! email вже зареєстровано!</b></p>";
       else done.innerHTML = "<p><b>Error:"+answer.error+"</b></p>";
       done.style.color = "#FF0000";
-      document.querySelector('#ipopContent .block').appendChild(done);
+      document.querySelector('#ipopContent .block').prepend(done);
       document.querySelector('#formButton').innerHTML = 'Підписатись';
     }
   }
@@ -307,7 +307,7 @@ function sendForm() {
     var done = document.createElement("div");
     done.innerHTML = "<p><b>Error: "+error+"</b></p>";
     done.style.color = "#FF0000";
-    document.querySelector('#ipopContent .block').appendChild(done);
+    document.querySelector('#ipopContent .block').prepend(done);
     document.querySelector('#formButton').innerHTML = 'Підписатись';
   }
   xrequest.open('GET', url, true);
