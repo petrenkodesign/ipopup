@@ -298,7 +298,7 @@ function sendForm() {
     else if(answer.error !== undefined) {
       if(answer.error === "Records exist!") done.innerHTML = "<p><b>Помилка! email вже зареєстровано!</b></p>";
       else done.innerHTML = "<p><b>Error:"+answer.error+"</b></p>";
-      done.style.color = "#FF0000";
+      done.style.cssText = "color:#FF0000; max-height:100px; height:100%";
       document.querySelector('#ipopContent form').prepend(done);
       document.querySelector('#ipopContent form').style.cssText = "margin-top:10px";
       document.querySelector('#formButton').innerHTML = 'Підписатись';
@@ -307,7 +307,7 @@ function sendForm() {
   xrequest.onerror = function(error) {
     var done = document.createElement("div");
     done.innerHTML = "<p><b>Error: "+error+"</b></p>";
-    done.style.color = "#FF0000";
+    done.style.cssText = "color:#FF0000; max-height:100px; height:100%";
     document.querySelector('#ipopContent form').prepend(done);
     document.querySelector('#ipopContent form').style.cssText = "margin-top:10px";
     document.querySelector('#formButton').innerHTML = 'Підписатись';
