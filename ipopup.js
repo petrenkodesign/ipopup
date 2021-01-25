@@ -77,13 +77,11 @@ window.onload = function() {
         // add form functional
         if(popConfig.formButton!='none') {
           document.getElementById("formButton").addEventListener("click", sendForm);
-          document.querySelector('#ipopContent form').addEventListener("keyup", function(event) {
-            if (event.keyCode === 13) {
-              event.preventDefault();
+          document.querySelector('#ipopContent form').addEventListener("submit", function(e) {
+              e.preventDefault();
               sendForm();
-              return false;
-            }
-          }, false);
+//               window.history.back();
+          }, true);
         }
 
 
