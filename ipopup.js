@@ -77,13 +77,13 @@ window.onload = function() {
         // add form functional
         if(popConfig.formButton!='none') {
           document.getElementById("formButton").addEventListener("click", sendForm);
-          document.querySelector('#ipopContent form [name="email"]').addEventListener("keyup", function(event) {
+          document.querySelector('#ipopContent form').addEventListener("keyup", function(event) {
             if (event.keyCode === 13) {
               event.preventDefault();
               sendForm();
               return false;
             }
-          });
+          }, false);
         }
 
 
