@@ -267,11 +267,10 @@ function sendForm() {
 
   if(!elements_audit) return false;
   sending_data['page'] = window.location.href;
-  var loading_img = document.createElement("div");
-  loading_img.innerHTML = '<img src="https://petrenkodesign.github.io/ipopup/img/loading.gif">';
-  loading_img.setAttribute("id", "ipop-spiner");
-  document.querySelector('#ipopContent form').append(loading_img);
-  document.querySelector('#ipop-answer').remove();
+  document.querySelector('#formButton').innerHTML = '<img src="https://petrenkodesign.github.io/ipopup/img/loading.gif">';
+  var ipop_answer = document.querySelector('#ipop-answer');
+  if (typeof(ipop_answer) != 'undefined' && ipop_answer != null) ipop_answer.remove();
+  
 
   // send elements to API key
   var url = new URL("https://console.smartfactory.com.ua/api/");
@@ -288,7 +287,7 @@ function sendForm() {
     var answer = JSON.parse(this.responseText);
     var done = document.createElement("div");
     done.setAttribute("id", "ipop-answer");
-//     document.querySelector('#ipop-spiner').remove();
+    
     if(answer.id !== undefined) {
       document.querySelector('#ipopContent form').remove();
       document.querySelector('#formButton').remove();
@@ -301,14 +300,15 @@ function sendForm() {
       else done.innerHTML = "<p><b>Error:"+answer.error+"</b></p>";
       done.style.color = "#FF0000";
       document.querySelector('#ipopContent .block').append(done);
+      document.querySelector('#formButton').innerHTML = 'Підписатись';
     }
   }
   xrequest.onerror = function(error) {
-    document.querySelector('#ipop-spiner').remove();
     var done = document.createElement("div");
     done.innerHTML = "<p><b>Error: "+error+"</b></p>";
     done.style.color = "#FF0000";
     document.querySelector('#ipopContent .block').append(done);
+    document.querySelector('#formButton').innerHTML = 'Підписатись';
   }
   xrequest.open('GET', url, true);
   xrequest.send();
