@@ -269,7 +269,10 @@ function sendForm() {
   sending_data['page'] = window.location.href;
   document.querySelector('#formButton').innerHTML = '<img src="https://petrenkodesign.github.io/ipopup/img/loading.gif">';
   var ipop_answer = document.querySelector('#ipop-answer');
-  if (typeof(ipop_answer) != 'undefined' && ipop_answer != null) ipop_answer.remove();
+  if (typeof(ipop_answer) != 'undefined' && ipop_answer != null) {
+    ipop_answer.remove();
+    document.querySelector('#ipopContent form').style.cssText = "margin-top:100px";
+  }
   
 
   // send elements to API key
@@ -300,6 +303,7 @@ function sendForm() {
       else done.innerHTML = "<p><b>Error:"+answer.error+"</b></p>";
       done.style.cssText = "color:#FF0000; max-height:100px; height:100vh";
       document.querySelector('#ipopContent form').prepend(done);
+      document.querySelector('#ipopContent form').style.cssText = "margin-top:0";
       document.querySelector('#formButton').innerHTML = 'Підписатись';
     }
   }
@@ -308,6 +312,7 @@ function sendForm() {
     done.innerHTML = "<p><b>Error: "+error+"</b></p>";
     done.style.cssText = "color:#FF0000; max-height:100px; height:100vh";
     document.querySelector('#ipopContent form').prepend(done);
+    document.querySelector('#ipopContent form').style.cssText = "margin-top:0";
     document.querySelector('#formButton').innerHTML = 'Підписатись';
   }
   xrequest.open('GET', url, true);
