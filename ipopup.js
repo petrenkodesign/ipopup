@@ -77,7 +77,7 @@ window.onload = function() {
         // add form functional
         if(popConfig.formButton!='none') {
           document.getElementById("formButton").addEventListener("click", sendForm);
-          input.addEventListener("keyup", function(event) {
+          document.querySelector('#ipopContent form [name="email"]').addEventListener("keyup", function(event) {
             if (event.keyCode === 13) {
               sendForm();
             }
